@@ -1,0 +1,89 @@
+@import '../variables.scss';
+
+.pizza-cart {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 420px) {
+    width: 240px;
+  }
+  &-btn {
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    border: none;
+    background-color: transparent;
+    transition: 0.1s ease all;
+    &:active {
+      transform: translateY(4px);
+    }
+  }
+  &-remove {
+    border: none;
+    background-color: transparent;
+    margin-right: 10px;
+    cursor: pointer;
+    &:active {
+      transform: translateY(4px);
+    }
+  }
+  &-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  &-change {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+  }
+  &-icon {
+    height: 40px;
+    width: 40px;
+  }
+  &-center {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  &-wrapper {
+    display: flex;
+
+    // @media (max-width: 380px) {
+    //   width: 230px;
+    // }
+  }
+  &-flex {
+    display: flex;
+    width: 85%;
+    justify-content: space-between;
+  }
+  &__image {
+    width: 100px;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 1%;
+    margin-bottom: 10px;
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  &__price {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: 0.015em;
+  }
+}

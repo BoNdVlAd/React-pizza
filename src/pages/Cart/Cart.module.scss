@@ -1,0 +1,22 @@
+.cart {
+  height: 100%;
+  width: 800px;
+  margin: 0 auto;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+}
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

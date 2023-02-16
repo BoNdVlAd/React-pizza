@@ -1,0 +1,33 @@
+.root {
+  display: flex;
+  gap: 10px;
+  li {
+    a {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      border: 1px solid orangered;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: orangered;
+      font-weight: 700;
+
+      &:hover {
+        color: white;
+        background-color: orangered;
+        border: 1px solid orangered;
+      }
+    }
+  }
+  :global {
+    .selected {
+      a {
+        color: white;
+        background-color: orangered;
+        border: 1px solid orangered;
+      }
+    }
+  }
+}
