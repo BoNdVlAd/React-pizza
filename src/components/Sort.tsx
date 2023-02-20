@@ -2,25 +2,26 @@ import React from 'react';
 
 const Sort = ({ sortId, onChangeSort, price, onSetPrice }) => {
   const [isVisible, setIsVisible] = React.useState(false);
-  const sort = ['популярности', 'цене', 'алфавиту'];
-  const sortName = sort[sortId];
-  const sortRef = React.useRef(false);
 
-  const typeNames = ['от большего к меньшему', 'от меньшего к большему'];
+  const sort: string[] = ['популярности', 'цене', 'алфавиту'];
+  const sortName: string = sort[sortId];
+  const sortRef = React.useRef<HTMLDivElement>(null);
+
+  const typeNames: string[] = ['от большего к меньшему', 'от меньшего к большему'];
 
   const popUp = () => {
     setIsVisible(!isVisible);
   };
-  const setSortedPrice = (index) => {
+  const setSortedPrice = (index: number) => {
     onSetPrice(index);
   };
-  const setSorted = (index) => {
+  const setSorted = (index: number) => {
     onChangeSort(index);
     setIsVisible(!isVisible);
   };
   console.log(sortRef);
   React.useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: any) => {
       if (!event.composedPath().includes(sortRef.current)) {
         setIsVisible(false);
       }
@@ -32,11 +33,11 @@ const Sort = ({ sortId, onChangeSort, price, onSetPrice }) => {
     };
   }, []);
   return (
-    <div ref={sortRef} class="sort">
+    <div ref={sortRef} className="sort">
       <div onClick={() => popUp()} className="sort__label">
         <svg
           className={isVisible ? 'active_label' : 'rotate'}
-          class="rotate"
+          // className="rotate"
           width="10"
           height="6"
           viewBox="0 0 10 6"
@@ -65,7 +66,7 @@ const Sort = ({ sortId, onChangeSort, price, onSetPrice }) => {
         </ul>
       </div>
 
-      <div class="sort__popup">
+      <div className="sort__popup">
         {isVisible && (
           <ul>
             {sort.map((e, index) => (

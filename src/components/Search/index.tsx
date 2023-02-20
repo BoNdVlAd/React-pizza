@@ -8,8 +8,8 @@ import { setSearchValue } from '../../redux/slices/filterSlice';
 const Search = () => {
   const dispatch = useDispatch();
 
-  const inputRef = React.useRef();
-  const [value, setValue] = React.useState();
+  const inputRef = React.useRef<HTMLInputElement>(null);
+  const [value, setValue] = React.useState<string>();
 
   const onClickClear = () => {
     dispatch(setSearchValue(''));
@@ -37,14 +37,8 @@ const Search = () => {
         <defs>
           <style>.cls-1</style>
         </defs>
-        <path
-          class="cls-1"
-          d="M18.856,14.624a10.022,10.022,0,1,0-4.234,4.234l4.254,4.255a2.994,2.994,0,1,0,4.239-4.23ZM2,10a8,8,0,1,1,8,8A8.009,8.009,0,0,1,2,10ZM21.7,21.708a1,1,0,0,1-1.4,0l-3.967-3.968a10.092,10.092,0,0,0,1.4-1.406L21.705,20.3a.976.976,0,0,1-.009,1.407Z"
-        />
-        <path
-          class="cls-1"
-          d="M10,4a6.006,6.006,0,0,0-6,6,1,1,0,0,0,2,0,4,4,0,0,1,4-4,1,1,0,0,0,0-2Z"
-        />
+        <path d="M18.856,14.624a10.022,10.022,0,1,0-4.234,4.234l4.254,4.255a2.994,2.994,0,1,0,4.239-4.23ZM2,10a8,8,0,1,1,8,8A8.009,8.009,0,0,1,2,10ZM21.7,21.708a1,1,0,0,1-1.4,0l-3.967-3.968a10.092,10.092,0,0,0,1.4-1.406L21.705,20.3a.976.976,0,0,1-.009,1.407Z" />
+        <path d="M10,4a6.006,6.006,0,0,0-6,6,1,1,0,0,0,2,0,4,4,0,0,1,4-4,1,1,0,0,0,0-2Z" />
       </svg>
       <input
         ref={inputRef}

@@ -123,16 +123,14 @@ const Home = () => {
       return obj.title.toLowerCase().includes(searchValue.toLowerCase());
     })
     .map((value) => (
-      <Link key={value.id} to={`/pizza/${value.id}`}>
-        <PizzaBlock
-          id={value.id}
-          title={value.title}
-          price={value.price}
-          img={value.imageUrl}
-          sizes={value.sizes}
-          types={value.types}
-        />
-      </Link>
+      <PizzaBlock
+        id={value.id}
+        title={value.title}
+        price={value.price}
+        img={value.imageUrl}
+        sizes={value.sizes}
+        types={value.types}
+      />
     ));
   const skeletons = [...new Array(4)].map((_, index) => <Skeleton key={index} />);
 

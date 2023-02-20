@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem, removeItem, removeItems } from '../../redux/slices/cartSlice';
+import { addItem, removeItem, removeItems, cartItemSelector } from '../../redux/slices/cartSlice';
 
-const PizzaCart = ({ size, id, title, imageUrl, price, img, type }) => {
-  const typeNames = ['тонкое', 'традиционное'];
+type CartItemsProps = {
+  size: number;
+  id: string;
+  title: string;
+  price: number;
+  img: string;
+  type: string;
+};
+
+const PizzaCart: React.FC<CartItemsProps> = ({ size, id, title, price, img, type }) => {
+  // const typeNames = ['тонкое', 'традиционное'];
   const dispatch = useDispatch();
-  const cartItem = useSelector((state) => state.cart.items.find((obj) => obj.id === id));
+  const cartItem = useSelector(cartItemSelector(id));
 
-  const addedCount = cartItem ? cartItem : 0;
+  const addedCount: any = cartItem ? cartItem : 0;
 
   const onClickAdd = () => {
     const item = {
@@ -27,7 +36,6 @@ const PizzaCart = ({ size, id, title, imageUrl, price, img, type }) => {
     };
     dispatch(removeItems(item));
   };
-  console.log();
 
   return (
     <div className="pizza-cart-wrapper">
@@ -47,7 +55,7 @@ const PizzaCart = ({ size, id, title, imageUrl, price, img, type }) => {
               <button className="pizza-cart-btn" onClick={onClickRemove}>
                 <svg
                   className="pizza-cart-icon"
-                  class="feather feather-plus-circle"
+                  // class="feather feather-plus-circle"
                   fill="none"
                   height="24"
                   stroke="orangered"
@@ -65,7 +73,7 @@ const PizzaCart = ({ size, id, title, imageUrl, price, img, type }) => {
               <button className="pizza-cart-btn" onClick={onClickAdd}>
                 <svg
                   className="pizza-cart-icon"
-                  class="feather feather-plus-circle"
+                  // class="feather feather-plus-circle"
                   fill="none"
                   height="24"
                   stroke="orangered"

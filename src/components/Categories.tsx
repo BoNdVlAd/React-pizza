@@ -1,10 +1,13 @@
-import React from 'react';
+type CategoriesProps = {
+  categoryId: number;
+  onSetCategoryId: any;
+};
 
-const Categories = ({ onSetCategoryId, categoryId }) => {
+const Categories: React.FC<CategoriesProps> = ({ onSetCategoryId, categoryId }) => {
   const categories = ['Все', 'Мясные', 'Гриль', 'Острые', 'Вегетарианская', 'Закрытые'];
 
   return (
-    <div class="categories">
+    <div className="categories">
       <ul>
         {categories.map((e, index) => (
           <li

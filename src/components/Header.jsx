@@ -4,11 +4,10 @@ import Search from './Search';
 import { useSelector } from 'react-redux';
 import { cartPriceSelector } from '../redux/slices/cartSlice';
 
-const Header = ({ searchValue, setSearchValue }) => {
+const Header = () => {
   const { items, totalPrice } = useSelector(cartPriceSelector);
 
   const location = useLocation();
-  console.log(location);
 
   return (
     <div class="header">
